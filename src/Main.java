@@ -17,10 +17,14 @@ public class Main {
             }
         });
 
-        scheduler.addTask(new TimerTask(6000) {
+        scheduler.addTask(new TimerTask(true, 6000) {
             @Override
             public void run() {
-                throw new RuntimeException("异常执行");
+                try {
+                    throw new RuntimeException("异常执行");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

@@ -1,6 +1,7 @@
 import java.util.concurrent.DelayQueue;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+
+import static java.util.concurrent.Executors.*;
 
 public class TaskScheduler {
 
@@ -10,7 +11,7 @@ public class TaskScheduler {
 
     public TaskScheduler(int size) {
         delayQueue = new DelayQueue<>();
-        workerThreadPool = Executors.newFixedThreadPool(size);
+        workerThreadPool = newFixedThreadPool(size);
     }
 
     public void start() {
